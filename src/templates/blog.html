@@ -1,0 +1,50 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<body style="background-color:#000000;">
+
+<div  class="container">
+<img class="img-responsive" src="{%static "img/basic/arch.gif"%}">
+</div>
+<div class="container">
+	<div class="row">
+	<!--<div class="col-lg-3">
+		<br>
+			<div style="background-color:#000">
+            <h1 style="color:#f39c12">Ar. Sunil Manocha</h1>
+            <p class="text-justify" style="color:#aaaaef;">We create smart places by developing environments for the needs of the end user, customers, guests & employees. Because rewarding experiences are projects that reward our clients. We are one of the leading Architects in Bhopal founded and promoted by<b style="color:#cd4436"> Ar. Sunil Manocha with 30 Yrs. of expertise.</p>
+            
+            </div><br>-->
+		</div>
+
+
+
+
+		<div class="col-lg-12" style="text-align:center;">
+			<div style="background-color:#000">
+			{% for post in object_list %}
+			<h2 class="text-centre" style="color:#0ef;"><u>{{ post.title }}</u></h2><br>
+				<div class = "post_meta" style="color:#0cf;">
+				on  {{ post.date }}<br>
+				</div>
+				<div style="font-size:20px; color:#fff;" class="text-justify">
+				{% if post.pic %}
+				<img class="img-responsive" src="{%static  post.pic%}"><br>
+				{% endif %}
+				{{post.body|safe|linebreaks}}
+				</div><hr>
+				{% endfor %}
+			</div><br>
+		</div>
+	</div>
+</div>
+</body>
+</html>
